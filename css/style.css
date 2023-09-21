@@ -51,9 +51,21 @@ address {
 }
 
 .container {
-    width: 1158px;
+    min-width: 320px;
     margin: auto;
     padding: 0 15px;
+
+    @media screen and (min-width: 428px) {
+        max-width: 428px;
+    }
+
+    @media screen and (min-width: 768px) {
+        max-width: 768px;
+    }
+
+    @media screen and (min-width: 1158px) {
+        max-width: 1158px;
+    }
 }
 
 .section {
@@ -75,16 +87,42 @@ address {
 
 .nav-links-list {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
+
+    @media screen and (min-width: 768px) {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.02em;
+        display: flex;
+        gap: 40px;
+        margin-left: 120px;
+    }
+
+    @media screen and (min-width: 1158px) {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.02em;
+        display: flex;
+        gap: 40px;
+        margin-left: 76px;
+    }
 }
 
 .nav-contacts {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    column-gap: 40px;
+    display: none;
+
+    @media screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    @media screen and (min-width: 1158px) {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+    }
 }
 
 
@@ -151,34 +189,47 @@ address {
 
 
 .hero {
-    padding: 188px 0 188px 0px;
+    padding: 112px 0;
     background: var(--color-navy-blue);
-}
-
-.heroimage {
     background-size: cover;
+    background-position: center;
     background-image: linear-gradient(rgba(46, 47, 66, 0.7),
             rgba(46, 47, 66, 0.7)),
         url("../images/hero-image.jpg");
     background-repeat: no-repeat;
-    margin: 0 auto;
-    max-width: 1440px;
+
+    @media screen and (min-width: 768px) {
+        background-image: unset;
+    }
+    
 }
 
 .hero-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+    text-align: center;
 }
 
 .effective-solutions {
     margin-bottom: 48px;
-    font-size: 56px;
+    font-size: 36px;
     font-family: Roboto;
     color: var(--color-white);
-    text-align: center;
-    width: 496px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    line-height: 2.5em;
+    letter-spacing: 0.72px;
 
+    @media screen and (min-width: 768px) {
+            font-size: 56px;
+            line-height: 3.75em;
+            letter-spacing: 1.12px;
+    }
+    
+    @media screen and (min-width: 1158px) {
+            font-size: 56px;
+            line-height: 3.75em;
+            letter-spacing: 1.12px;
+    }
 }
 
 .order-service {
@@ -1010,3 +1061,161 @@ address {
 .modal-button-submit:focus {
     background-color: var(--color-ocean);
 }
+
+/* Mobile View */
+
+.menu-hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    color: var(--navyblue, #2e2f42);
+    
+        @media screen and (min-width: 768px) {
+            display: none;
+        }
+}
+
+.mobile-menu-icon {
+    fill: currentColor;
+}
+
+.mobile-menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 80px 40px;
+    background-color: var(--white);
+    z-index: 200;
+    transform: translateX(100%);
+    transition: transform var(--transition-duration) var(--animation-timing);
+}
+
+.mobile-menu-container.is-open {
+    transform: translateX(0);
+}
+
+.mobile-menu-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    background-color: var(--cornflower, #e7e9fc);
+    color: var(--color-navy-blue);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color var(--transition-duration) var(--animation-timing),
+            color var(--transition-duration) var(--animation-timing);
+}
+
+.mobile-menu-close:hover,
+.mobile-menu-close:focus {
+    background-color: var(--color-ocean);
+    color: var(--color-white);
+}
+
+.mobile-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.mobile-menu-item {
+    color: var(--color-navy-blue);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 0.72px;
+}
+
+.mobile-menu-nav {
+    transition: color var(--transition-duration) var(--animation-timing);
+}
+
+.mobile-menu-nav:hover,
+.mobile-menu-nav:focus {
+    color: var(--color-ocean)
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.hamburger-container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.mobile-menu-address {
+    color: var(--slate, #434455);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5em;
+    letter-spacing: 0.4px;
+}
+
+.mobile-menu-address-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.mobile-menu-contact {
+    color: inherit;
+    transition: color var(--transition-duration) var(--animation-timing);
+}
+
+.mobile-menu-contact:hover,
+.mobile-menu-contact:focus {
+    color: var(--color-ocean);
+}
+
+.highlight {
+    color: var(--color-iris);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 2.5em;
+    letter-spacing: 0.72px;
+}
+
+.mobile-menu-social-list {
+    background-color: var(--color-iris);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-cloud);
+    transition: background-color var(--transition-duration) var(--animation-timing);
+}
+
+.mobile-menu-social-link:hover,
+.mobile-menu-social-link:focus {
+    background-color: var(--color-ocean);
+}
+
+.mobile-menu-social-icon {
+    fill: currentColor;
+}
+
+
+
+
