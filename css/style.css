@@ -598,11 +598,10 @@ display: none;
     align-items: center;
     width: 168px;
     height: 88px;
-    cursor: pointer;
-    border: 1px solid var(--color-lightslate);
+    color: var(--color-slate);
     border-radius: 4px;
-    color: var(--color-lightslate);
-    padding: 16px 32px;
+    border: 1px solid var(--color-slate);
+    cursor: pointer;
     transition: color var(--transition-duration) var(--animation-timing);
 }
 
