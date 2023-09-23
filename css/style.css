@@ -637,7 +637,8 @@ display: none;
     background-color: var(--color-ocean);
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.10);
     color: var(--color-white);
-    border: 1px solid transparent;
+    border: 1px solid var(--color-ocean);
+    border-radius: 4px;
 }
 
 .all:active,
@@ -904,6 +905,11 @@ display: none;
     margin-left: 16px;
 }
 
+.project-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .filters {
     display: flex;
@@ -911,6 +917,16 @@ display: none;
     align-items: center;
     gap: 24px;
     margin-bottom: 72px;
+
+    @media screen and (min-width: 768px) {
+            flex-wrap: nowrap;
+            align-items: center;
+    }
+    
+    @media screen and (min-width: 1158px) {
+            flex-wrap: nowrap;
+            align-items: center;
+    }
 }
 
 
@@ -926,37 +942,48 @@ display: none;
     padding: 12px 24px;
     align-items: center;
     cursor: pointer;
-    transition: fill var(--transition-duration) var(--animation-timing),
+    transition: color var(--transition-duration) var(--animation-timing),
         background-color var(--transition-duration) var(--animation-timing),
-        border-color var(--transition-duration) var(--animation-timing),
-        box-shadow var(--transition-duration) var(--animation-timing);
+        border var(--transition-duration) var(--animation-timing),
+        box-shadow var(--transition-duration) var(--animation-timing)
+        border-radius var(--transition-duration) var(--animation-timing);
 }
 
 
 .project-card-rows {
     display: flex;
     flex-wrap: wrap;
-    gap: 48px 24px;
+    gap: 24px;
 }
 
 .project-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     background-color: var(---color-white);
     border: 1px solid #e7e9fc;
     box-sizing: border-box;
-    width: calc((100% - 48px) / 3);
     transition: box-shadow var(--transition-duration) var(--animation-timing);
-}
-
-.img-icon {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    overflow: clip;
+        
+    @media screen and (min-width: 768px) {
+                width: calc((100% - 24px) / 2);
+    }
+        
+    @media screen and (min-width: 1158px) {
+                width: calc((100% - 48px) / 3);
+    }
 }
 
 .card-content {
-    width: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    align-self: stretch;
     padding: 32px 16px;
+    border-top: 0px;
+    background-color: var(--color-white);
 }
 
 .img-label {
