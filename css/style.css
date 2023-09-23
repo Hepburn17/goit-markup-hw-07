@@ -599,9 +599,6 @@ display: none;
     width: 168px;
     height: 88px;
     cursor: pointer;
-}
-
-.customers-link {
     border: 1px solid var(--color-lightslate);
     border-radius: 4px;
     color: var(--color-lightslate);
@@ -658,15 +655,14 @@ display: none;
     background-color: var(--color-green);
 }
 
-.customers-link:hover {
-    border: 1px solid var(--color-ocean);
+.customers-item:hover {
+    border-color: var(--color-ocean);
     fill: var(--color-ocean);
 }
 
 .customers-icon:hover {
     fill: var(--color-ocean);
 }
-
 /*-------*/
 
 
