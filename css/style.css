@@ -1341,12 +1341,12 @@ display: none;
     justify-content: center;
     margin-left: auto;
     padding: 0;
-    background-color: transparent;
+    background-color: var(--color-white);
     cursor: pointer;
     border: none;
     border-radius: 50%;
     outline: none;
-    color: var(--navyblue, #2e2f42);
+    color: var(--color-navy-blue);
     
         @media screen and (min-width: 768px) {
             display: none;
